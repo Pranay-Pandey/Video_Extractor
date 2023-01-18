@@ -1,5 +1,3 @@
-const { auto } = require("@popperjs/core");
-
 function search_for_video(text)
 {
   const options = {
