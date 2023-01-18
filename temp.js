@@ -69,6 +69,8 @@ but.onclick = ()=>{
  let ul_element = document.getElementById('ul_holder');
  ul_element.innerHTML="";
   search_for_video(document.getElementById('input-box').value);
+
+  return false;
 }
 
 console.log("hello");
