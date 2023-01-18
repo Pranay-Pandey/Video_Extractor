@@ -35,6 +35,7 @@ json.files_found.forEach(element => {
   let li_ele = document.createElement("li")
   li_ele.innerText = element.file_name;
   li_ele.className = "list-group-item";
+  li_ele.style.overflow = auto;
   li_ele.value = element.file_link;
   li_ele.onclick = ()=>{
     document.getElementById('video_control').innerHTML = 
