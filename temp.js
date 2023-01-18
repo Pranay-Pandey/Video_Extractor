@@ -24,6 +24,12 @@ fetch(BASEURL+text+"&type=video", options)
 // '`;
 // console.log("DONE SCOURCING");
 let ul_element = document.getElementById('ul_holder');
+if (json.files_found.length==0){
+  let li_ele = document.createElement("li")
+  li_ele.innerText = "Sorry😢! No Videos Found";
+  ul_element.appendChild(li_ele);
+}
+else{
 json.files_found.forEach(element => {
   console.log("one link= "+element.file_link)
   let li_ele = document.createElement("li")
@@ -40,14 +46,24 @@ json.files_found.forEach(element => {
   }
   ul_element.appendChild(li_ele)
 });
-
+}
+document.getElementById('spinner_class').style = "visibility:hidden;"
 })
-       .catch(err => console.error(err));
+       .catch(err => {console.error(err);
+        let ul_element = document.getElementById('ul_holder');
+        let li_ele = document.createElement("li")
+        li_ele.className = "list-group-item";
+        li_ele.innerText = "Sorry😢! No Videos Found";
+        ul_element.appendChild(li_ele);
+        document.getElementById('spinner_class').style = "visibility:hidden;"
+
+      });
         
         
 }
 let but = document.getElementById('send');
 but.onclick = ()=>{
+  document.getElementById('spinner_class').style = "visibility:visible;"
 
  console.log(document.getElementById('input-box').value);
  let ul_element = document.getElementById('ul_holder');
