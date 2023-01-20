@@ -1,3 +1,8 @@
+
+let awayTake = document.getElementById('takeaway');
+
+
+
 function search_for_video(text)
 {
   const options = {
@@ -43,6 +48,12 @@ json.files_found.forEach(element => {
     <source src="${element.file_link}" title="YouTube video" type="video/mp4">
     </video>
   '`;
+  awayTake.style.visibility = 'visible';
+  awayTake.onclick = ()=>{
+    console.log("item clicked = "+element.file_link);
+    window.open(element.file_link);
+
+  }
   }
   ul_element.appendChild(li_ele)
 });
@@ -69,7 +80,7 @@ but.onclick = ()=>{
  let ul_element = document.getElementById('ul_holder');
  ul_element.innerHTML="";
   search_for_video(document.getElementById('input-box').value);
-
+  
   return false;
 }
 
